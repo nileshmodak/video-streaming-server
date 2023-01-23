@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import cors from 'cors';
-import { getVideoPoster, getVideoList, getFileName } from './utils';
+import { generatePoster, getVideoList, getFileName } from './utils';
 import { VIDEO_DIR, PORT} from './constants';
 
 const app = express();
@@ -24,7 +24,7 @@ app.get('/videos', async (req, res) => {
 
 app.get('/video/:id/poster', async(req, res) => {
     const fileName = getFileName(videoList, req.params.id);
-    const thumb = await getVideoPoster(`${VIDEO_DIR}/${fileName}`);
+    const thumb = await generatePoster(`${VIDEO_DIR}/${fileName}`);
     res.sendFile(thumb);
 });
 
