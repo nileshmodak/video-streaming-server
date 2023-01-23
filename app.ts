@@ -55,7 +55,6 @@ app.get('/video/:id', (req, res) => {
 
     const videoStream = fs.createReadStream(path, { start, end });
     videoStream.pipe(res);
-    }
 });
 
 app.get('/train/video/:id', (req, res) => {
