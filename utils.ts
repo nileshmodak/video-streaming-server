@@ -1,7 +1,7 @@
 import thumbsupply from 'thumbsupply';
 import fs from 'fs';
 import path from 'path';
-import { EXTENSION, CACHE_THUMB_DIR} from './constants';
+import { EXTENSION, CACHE_THUMB_DIR, ASSETS_DIR} from './constants';
 
 export const generatePoster = async (path: string) => {
     try {
@@ -11,7 +11,7 @@ export const generatePoster = async (path: string) => {
         return thumb;
     } catch(e) {
         console.error(e.message);
-        return `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`;
+        return `${ASSETS_DIR}/video.png`;
     }
 }
 
